@@ -40,3 +40,51 @@ public class MyLinkedList<T extends Comparable<T>> {
         this.iter = iter;
 
     }  //Setter for iter
+
+    // method to insert new node
+
+    public void insert(Node<T> node) {
+
+        if (getHead() == null) {
+
+            setHead(node);
+
+        } else {
+
+            Node<T> temp = head;
+
+            while (temp.getNext() != null) {
+
+                temp = temp.getNext();
+
+            }
+
+            temp.setNext(node);
+
+        }
+
+    }
+
+
+    //method to delete node from beginning
+
+    public Node<T> delete() {
+
+        if (isEmpty()) {
+
+            System.out.println("Underflow");
+
+            return null;
+
+        }
+
+        Node<T> temp = getHead();
+
+        setHead(getHead().getNext());
+
+        return temp;
+
+    }
+//method to insert new node
+
+
