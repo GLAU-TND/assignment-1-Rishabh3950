@@ -85,6 +85,43 @@ public class MyLinkedList<T extends Comparable<T>> {
         return temp;
 
     }
-//method to insert new node
 
+    //method to delete node at particular position
 
+    public Node<T> delete(int i) {
+
+        Node<T> deletedNode;
+
+        Node<T> temp = getHead();
+
+        if (isEmpty()) {
+
+            System.out.println("Underflow");
+
+            return temp;
+
+        }
+
+        if (i == 1) {
+
+            deletedNode = getHead();
+
+            setHead(null);
+
+        } else {
+
+            for (int j = 1; j < i - 1; j++) {
+
+                temp = temp.getNext();
+
+            }
+
+            deletedNode = temp.getNext();
+
+            temp.setNext(temp.getNext().getNext());
+
+        }
+
+        return deletedNode;
+
+    }
