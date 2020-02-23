@@ -2,6 +2,7 @@ package menu;
 
 
 import dataStructures.MyLinkedList;
+import node.Node;
 import person.Person;
 
 import java.util.Scanner;
@@ -196,3 +197,43 @@ public class Menu {
         }
 
     }
+
+    public void deleteChoice() {
+
+        System.out.println("Here are all your contacts:");
+
+        int i = 1;
+
+        while (true) {
+
+            Node<Person> node = linkedList.getObject();
+
+            if (node == null)
+
+                break;
+
+            System.out.println(i + ". " + node.getData().getFirstName() + " " + node.getData().getLastName());
+
+            i++;
+
+        }
+
+        System.out.print("Press the number against the contact to delete it: ");
+
+        int position = scan.nextInt();
+
+        Person person = linkedList.delete(position).getData();
+
+
+        System.out.println(person.getFirstName() + " " + person.getLastName() + "'s contact deleted from list!");
+
+    }
+
+
+    public void exitChoice() {
+
+        System.out.println("Exiting");
+
+    }
+
+}
